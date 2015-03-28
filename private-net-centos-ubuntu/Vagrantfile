@@ -1,0 +1,17 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  config.vm.define "centos64-32bit" do |centos|
+    centos.vm.box = "centos64_32bit"
+    centos.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-i386-v20131103.box"
+    centos.vm.network :private_network, ip: "192.168.11.11"
+  end
+
+  config.vm.define "ubuntu-raring-i386" do |ubuntu|
+    ubuntu.vm.box = "ubuntu_raring_i386_no_guest_additions"
+    ubuntu.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/raring/current/raring-server-cloudimg-i386-vagrant-disk1.box"
+    ubuntu.vm.network :private_network, ip: "192.168.11.15"
+  end
+
+end
